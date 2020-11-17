@@ -70,7 +70,7 @@ def results():
         # TODO: Enter query parameters here for the 'appid' (your api key),
         # the city, and the units (metric or imperial).
         # See the documentation here: https://openweathermap.org/current
-        'appid' : "188f632dcd5795ac61ad21bc7fa2fa8e",
+        'appid' : API_KEY,
         'q' : city,
         'units' : units
     }
@@ -140,7 +140,7 @@ def historical_results():
     units = request.args.get("units")
     date_obj = datetime.strptime(date, '%Y-%m-%d')
     date_in_seconds = date_obj.strftime('%s')
-
+    print(date_in_seconds)
     latitude, longitude = get_lat_lon(city)
 
     url = 'http://api.openweathermap.org/data/2.5/onecall/timemachine'
@@ -149,7 +149,7 @@ def historical_results():
         # latitude, longitude, units, & date (in seconds).
         # See the documentation here (scroll down to "Historical weather data"):
         # https://openweathermap.org/api/one-call-api
-        "appid" : "188f632dcd5795ac61ad21bc7fa2fa8e",
+        "appid" : API_KEY,
         "lat" : latitude,
         "lon" : longitude,
         "units" : units,
